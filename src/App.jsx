@@ -1,6 +1,7 @@
 import React from 'react'
 import Form  from "./components/Form";
  import Section from "./components/Section";
+ import List from './components/List';
 
 
 const Apptitle = "to-do-App";
@@ -17,6 +18,7 @@ const App = () => {
       <section>
          <Form  /> 
         <Section />
+        <List />
       </section>
     </div>
   )
