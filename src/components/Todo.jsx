@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-const Todo = ({ title }) => {
+const Todo = ({ title, completed }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [Value, setValue] = useState(title)
     const [tempValue, setTempValue] = useState(title);
+    const [completedState, setCompleted] = useState(completed);
+
     const handleDivDubleClick = () => {
         setIsEditing(true);
     };
     const handleInputKeyDown = (e) => {
         const key = e.keyCode;
+       
+
         if (key === 13) {
             setValue(tempValue);
             setIsEditing(false);
@@ -16,9 +20,15 @@ const Todo = ({ title }) => {
             setIsEditing(false);
         }
     };
+    
     const handleInputOnChange = (e) => {
         setTempValue(e.target.value);
     };
+
+    const handleButtonClick = () => {
+    setCompleted(true);
+    };
+
     return (
         <div className="row" onDoubleClick={handleDivDubleClick}>
             {
@@ -35,10 +45,14 @@ const Todo = ({ title }) => {
                     </div> :
                     <>
                         <div className="column five wide">
-                            <h1>{Value}</h1>
+                            <h1 className={"ui header"+(completedState? "green": "")}>{Value}</h1>
                         </div>
                         <div className="column two wide">
-                            <button className="ui button circular icon green"><i className="white check icon"></i></button>
+                            <button 
+                            className="ui button circular icon green"
+                            onClick={handleButtonClick}
+                            >
+                                <i className="white check icon"></i></button>
                         </div>
                         <div className="column two wide">
                             <button className="ui button circular icon red"><i className="white remove icon"></i></button>
