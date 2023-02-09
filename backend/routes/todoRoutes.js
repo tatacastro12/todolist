@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const router = require("express").Router();
 const Todo = require("../models/Todo");
 
@@ -35,4 +36,4 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-module.exports = router;
+module.exports = router
