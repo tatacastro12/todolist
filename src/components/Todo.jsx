@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-const Todo = ({ title, completed }) => {
+import React, { useState } from "react"; const Todo = ({ title, completed, removeTodoItemProp }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [Value, setValue] = useState(title)
     const [tempValue, setTempValue] = useState(title);
+
     const [completedState, setCompleted] = useState(completed);
 
-    const handleDivDubleClick = () => {
+    const handleDivDoubleClick = () => { 
         setIsEditing(true);
     };
-    const handleInputKeyDown = (e) => {
-        const key = e.keyCode;
+    const handleInputKeyDown= (e) => {
+        const key =e.keyCode;
        
-
-        if (key === 13) {
+         if (key === 13) {
             setValue(tempValue);
             setIsEditing(false);
         } else if (key === 27) {
@@ -20,17 +19,12 @@ const Todo = ({ title, completed }) => {
             setIsEditing(false);
         }
     };
-    
-    const handleInputOnChange = (e) => {
-        setTempValue(e.target.value);
-    };
+    const handleInputOnChange = (e) => { setTempValue(e.target.value); };
+    const handleButtonClick = () => { setCompleted((oldcompleted) => !oldcompleted);
+     };
 
-    const handleButtonClick = () => {
-    setCompleted((oldCompleted) => !oldCompleted);
-    };
-
-    return (
-        <div className="row">
+     return (
+        <div className="row" onDoubleClick={handleDivDoubleClick}>
             {
                 isEditing ?
                     <div className="column seven wide">
@@ -44,14 +38,12 @@ const Todo = ({ title, completed }) => {
                         </div>
                     </div> :
                     <>
-                        <div className="column five wide" onDoubleClick= {handleDivDubleClick}>
-                            <h2 className={"ui header" + (completedState? " green " : " " )}>{Value}</h2>
-                            </div>
-
-                        
-                        <div className="column one wide">
+                        <div className="column five wide">
+                            <h1 className={"ui header"+(completedState? "green": "")}>{Value}</h1>
+                        </div>
+                        <div className="column two wide">
                             <button 
-                            className={"ui button circular icon"+ (completedState? " blue " : " green ")}
+                            className="ui button circular icon green"
                             onClick={handleButtonClick}
                             >
                                 <i className="white check icon"></i></button>
@@ -64,4 +56,4 @@ const Todo = ({ title, completed }) => {
         </div>
     );
 };
-export default Todo;
+export default Todo; 

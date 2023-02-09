@@ -19,6 +19,10 @@ const App = () => {
     setTodoList((oldlist) => [...oldlist, item]);
   };
 
+  const removeTodo = (id) =>{
+
+  };
+
   return (
     <div className='ui container center aligned'>
       <></>
@@ -33,8 +37,13 @@ const App = () => {
       </Section>
 
       <Section>
-      <List list={todoList} />
-    </Section>
+        <List list={todoList} />
+      </Section>
+
+      <Section>
+        <List removeTodoListProp={removeTodo} list={todoList}/>
+      </Section>
+
     </div>
   )
 }
