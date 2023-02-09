@@ -47,7 +47,8 @@ const App = () => {
 
   
   return (
-    <div className='ui container center aligned bg-white dark:bg-slate-900 min-h-screen font-inter'>
+    <div className='bg-[url(https://user-images.githubusercontent.com/116750999/217895729-10a5baf8-52af-4983-8d58-85a8625a540a.jpg)] bg-center dark:bg-[url(https://user-images.githubusercontent.com/116750999/217899197-940cabaa-0cc7-460a-b168-2338e6f7559f.jpg)] bg-center font-inter '>
+    <div className='card'>
       
       <>
       <button
@@ -74,6 +75,7 @@ const App = () => {
           removeTodoListProp={removeTodo}
         />
       </Section>
+    </div>
     </div>
     </div>
   )

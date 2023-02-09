@@ -29,7 +29,7 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
     };
 
     return (
-        <div className="row">
+        <div className="row ">
             {
                 isEditing ?
                     <div className="column seven wide">
