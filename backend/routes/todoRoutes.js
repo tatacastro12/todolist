@@ -30,6 +30,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
+  // eslint-disable-next-line no-unused-vars
   Todo.findOneAndRemove({ _id: req.params.id }, (err, result) => {
     if (err) throw new Error(err);
     res.end();
