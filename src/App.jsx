@@ -5,7 +5,7 @@ import List from './components/List';
 
 
 
-const Apptitle = "to-do-App";
+const Apptitle = "to do list";
 
 const list = [
   { title: "test #1", completed: false },
@@ -47,9 +47,9 @@ const App = () => {
 
   
   return (
-    <div className='bg-[url(https://user-images.githubusercontent.com/116750999/217895729-10a5baf8-52af-4983-8d58-85a8625a540a.jpg)] bg-center dark:bg-[url(https://user-images.githubusercontent.com/116750999/217899197-940cabaa-0cc7-460a-b168-2338e6f7559f.jpg)] bg-center font-inter '>
-    <div className='card'>
-      
+    <div className='body'>
+    <div className='text-center bg-center  bg-[url(https://user-images.githubusercontent.com/116750999/217895729-10a5baf8-52af-4983-8d58-85a8625a540a.jpg)]  dark:bg-[url(https://user-images.githubusercontent.com/116750999/217899197-940cabaa-0cc7-460a-b168-2338e6f7559f.jpg)]  '>
+    
       <>
       <button
 				type="button"
@@ -61,7 +61,7 @@ const App = () => {
       </>
       <div className="max-w-5xl w-11/12 mx-auto">
       <Section>
-        <h1 className='text-5xl'>
+        <h1 className='text-5xl font-graduate '>
           {Apptitle}
         </h1>
       </Section>

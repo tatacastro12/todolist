@@ -11,19 +11,20 @@ const Form = ({ addTodo }) => {
         setInputValue("");
     };
     return (
-        <form className="ui form" onSubmit={handleFormSubmit}>
-            <div className="ui grid center aligned">
-                <div className="row">
-                    <div className="column five wide">
-                        <input
+        <form className="ui form " onSubmit={handleFormSubmit}>
+            <div className="ui grid center aligned ">
+                <div className="row ">
+                    <div className="column five wide ">
+                        <input 
                             value={inputValue}
                             onChange={handleInputChange}
                             type="text"
                             placeholder="Enter something to do..."
+                    
                         />
                     </div>
-                    <div className="column one wide">
-                        <button type="submit" className="ui button circular icon green"><i className="white plus icon"></i>
+                    <div className="column one wide  ">
+                        <button type="submit" className="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:text-slate-600"><h1 className="font-graduate text-sm">Add</h1>
                         </button>
                     </div>
                 </div>
@@ -32,4 +33,3 @@ const Form = ({ addTodo }) => {
     );
 };
 export default Form;
-1
