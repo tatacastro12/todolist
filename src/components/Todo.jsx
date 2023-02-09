@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const Todo = ({ title, completed }) => {
+const Todo = ({ title, completed, removeTodoItemProp }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [Value, setValue] = useState(title)
     const [tempValue, setTempValue] = useState(title);
@@ -10,7 +10,6 @@ const Todo = ({ title, completed }) => {
     };
     const handleInputKeyDown = (e) => {
         const key = e.keyCode;
-       
 
         if (key === 13) {
             setValue(tempValue);
@@ -20,13 +19,13 @@ const Todo = ({ title, completed }) => {
             setIsEditing(false);
         }
     };
-    
+
     const handleInputOnChange = (e) => {
         setTempValue(e.target.value);
     };
 
     const handleButtonClick = () => {
-    setCompleted((oldCompleted) => !oldCompleted);
+        setCompleted((oldCompleted) => !oldCompleted);
     };
 
     return (
@@ -44,24 +43,25 @@ const Todo = ({ title, completed }) => {
                         </div>
                     </div> :
                     <>
-                        <div className="column five wide" onDoubleClick= {handleDivDubleClick}>
-                            <h2 className={"ui header" + (completedState? " green " : " " )}>{Value}</h2>
-                            </div>
+                        <div className="column five wide" onDoubleClick={handleDivDubleClick}>
+                            <h2 className={"ui header" + (completedState ? " green " : " ")}>{Value}</h2>
+                        </div>
 
-                        
+
                         <div className="column one wide">
-                            <button 
-                            className={"ui button circular icon"+ (completedState? " blue " : " green ")}
-                            onClick={handleButtonClick}
+                            <button
+                                className={"ui button circular icon" + (completedState ? " blue " : " green ")}
+                                onClick={handleButtonClick}
                             >
                                 <i className="white check icon"></i></button>
                         </div>
                         <div className="column two wide">
-                            <button className="ui button circular icon red"><i className="white remove icon"></i></button>
+                            <button onClick={removeTodoItemProp} className="ui button circular icon red"><i className="white remove icon"></i></button>
                         </div>
                     </>
             }
         </div>
     );
 };
+
 export default Todo;
