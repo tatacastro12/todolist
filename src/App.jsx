@@ -23,6 +23,9 @@ const App = () => {
 
   };
 
+  const removeTodo = async (id) => {
+    setTodoList((oldList) => oldList.filter((item) => item._id !== id));
+  };
   return (
     <div className='ui container center aligned'>
       <></>
@@ -37,13 +40,8 @@ const App = () => {
       </Section>
 
       <Section>
-        <List list={todoList} />
-      </Section>
-
-      <Section>
-        <List removeTodoListProp={removeTodo} list={todoList}/>
-      </Section>
-
+      <List list={todoList} />
+    </Section>
     </div>
   )
 }
