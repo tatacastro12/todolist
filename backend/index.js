@@ -16,8 +16,7 @@ const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
 mongoose
   .connect(
-    "mongodb+srv://tatianac:saraymajo24@cluster0.vhd8ldu.mongodb.net/todolist",  // URL de la base de datos
-    connectionOptions  // Opciones de conexión
+    process.env.MONGODB_URI
   )
   .then(() => console.log("Connected successfully"))  // Si la conexión es exitosa, muestra un mensaje de éxito
   .catch((err) => console.error(err));  // Si hay un error, muestra un mensaje de error
