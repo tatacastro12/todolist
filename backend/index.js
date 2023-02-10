@@ -15,11 +15,9 @@ app.use(cors());
 const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
 mongoose
-  .connect(
-    process.env.MONGODB_URI
-  )
-  .then(() => console.log("Connected successfully"))  // Si la conexión es exitosa, muestra un mensaje de éxito
-  .catch((err) => console.error(err));  // Si hay un error, muestra un mensaje de error
+  .connect( process.env.MONGODB_URI, connectionOptions)
+  .then(() => console.log("Connected successfully"))
+  .catch((err) => console.error(err));
 app.use("/todos",todoRoutes);
 
 app.listen(PORT, () =>{
