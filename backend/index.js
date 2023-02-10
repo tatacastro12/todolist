@@ -16,7 +16,7 @@ app.use(cors());
 const uri = `mongodb+srv://tatianac:saraymajo24@cluster0.vhd8ldu.mongodb.net/Todo-list`
 
 mongoose.connect(uri,
-    { useNewUrlParser: true, useUnifiedTopology: true })
+    { useNewUrlParser: true, useUnifiedTopology: true,  })
 
 
     .then(()=> console.log('Connected succefully'))
