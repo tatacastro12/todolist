@@ -13,14 +13,13 @@ const todoRoutes = require("./routes/todoRoutes");
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.MONGODB_URI,
-    { useNewUrlParser: true, useUnifiedTopology: true,  })
+const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
-
-    .then(()=> console.log('Connected succefully'))
-    .catch(e => console.log(e))
-
-app.use("/todo",todoRoutes);
+mongoose
+  .connect( process.env.MONGODB_URI, connectionOptions)
+  .then(() => console.log("Connected successfully"))
+  .catch((err) => console.error(err));
+app.use("/todos",todoRoutes);
 
 app.listen(PORT, () =>{
     console.log("the server is listening on port " + PORT);
