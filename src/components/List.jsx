@@ -7,10 +7,8 @@ const List = ({ list, removeTodoListProp, editTodoListProp }) => {
             <Todo
                 title={item.title}
                 completed={item.completed}
-                removeTodoListProp={(e) => removeTodoListProp(item.title)}
-                editTodoItemProp={(updatedItem) =>
-                    editTodoListProp(item._id, updatedItem)
-                }
+                removeTodoItemProp={(e) => removeTodoListProp(item._id)}
+                editTodoItemProp={(updatedItem) => editTodoListProp(item._id, updatedItem)}
                 key={item.title}
             />
         )
