@@ -13,9 +13,7 @@ const todoRoutes = require("./routes/todoRoutes");
 app.use(express.json());
 app.use(cors());
 
-const uri = `mongodb+srv://tatianac:saraymajo24@cluster0.vhd8ldu.mongodb.net/Todo-list`
-
-mongoose.connect(uri,
+mongoose.connect(process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true,  })
 
 
