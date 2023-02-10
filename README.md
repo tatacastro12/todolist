@@ -19,6 +19,12 @@ npm i cors
 npm postcss
 npm nodemon
 
+Tailwind:
+![tailwind](https://user-images.githubusercontent.com/116750999/218152005-95a6f5be-c9f8-443d-9d10-6f0b8549efbf.PNG)
+![tailwind css](https://user-images.githubusercontent.com/116750999/218152017-e9638ec5-d016-4103-8393-a7e34a1dd03b.PNG)
+Fonts desde google Fonts añadidas al tailwind:
+![fonts tailwind](https://user-images.githubusercontent.com/116750999/218152022-de6f15c3-0c0c-4f5a-9927-31cffa253863.PNG)
+
 ## Archivos de configuración
 
 
