@@ -8,11 +8,11 @@ Esta es la vista modo noche
 ![Todo list app dark](https://user-images.githubusercontent.com/116750999/218000028-ab69c57b-25fc-4c0e-9610-6d937b895194.PNG)
 
 ## Enlace de aplicación: 
-
+https://todolist-tau-rust.vercel.app/
 
 ## Instalación de Paquetes:
 
 
 ## Archivos de configuración
 
-https://todolist-tau-rust.vercel.app/
+
