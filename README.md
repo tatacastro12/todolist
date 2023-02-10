@@ -28,6 +28,7 @@ Fonts desde google Fonts añadidas al tailwind:
 
 ## Archivos de configuración
 Para conectar el servidor: 
+
 ![archivos](https://user-images.githubusercontent.com/116750999/218153064-cb8c7831-9357-4caf-acf0-9e21f717cbb0.PNG)
 
 
