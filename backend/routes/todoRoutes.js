@@ -1,11 +1,11 @@
-const express = require("express"); // importamos express
-const router = express.Router(); // creamos una instancia del enrutador de express
-const Todo = require("../models/Todo"); // importamos el modelo Todo
+const express = require("express");
+const router = express.Router();
+const Todo = require("../models/Todo");
 
 // Manejador de petición GET en la ruta raíz ('/')
 router.get("/", (req, res) => {
-  Todo.find((err, result) => { // buscamos todos los documentos de la colección Todo
-    if (err) throw new Error(err); // si hay un error, lo lanzamos
+  Todo.find((err, result) => {
+    if (err) throw new Error(err); //
     res.json(result); // enviamos la respuesta en formato JSON con los resultados
   });
 });
