@@ -1,27 +1,26 @@
-/* eslint-disable no-console */
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
+
+mongoose.set('strictQuery', true);
 
 const PORT = 3030;
 const app = express();
 
 const todoRoutes = require("./routes/todoRoutes");
-// const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false };
-const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
 app.use(express.json());
-app.use(cors());
 
-mongoose.set('strictQuery', true)
-mongoose
-  .connect(process.env.MONGODB_URI, connectionOptions )
-  .then(() => console.log("Connected successfully"))
-  .catch((err) => console.error(err));
+const uri = `mongodb+srv://tatianac:saraymajo24@cluster0.vhd8ldu.mongodb.net/Todo-list`
 
-app.use("/todos", todoRoutes);
+mongoose.connect(uri,
+    { useNewUrlParser: true, useUnifiedTopology: true })
 
-app.listen(PORT, () => {
-  console.log("The server is listening on port " + PORT);
+
+    .then(()=> console.log('Connected succefully'))
+    .catch(e => console.log(e))
+
+app.use("/todo",todoRoutes);
+
+app.listen(PORT, () =>{
+    console.log("the server is listening on port " + PORT);
 });
