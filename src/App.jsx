@@ -1,50 +1,47 @@
-import React, { useState, useEffect } from "react";
-import Form from "./Components/Form";
-import List from "./Components/List";
-import Section from "./Components/Section";
-import todos from "./api/index";
+import React, { useState } from 'react'
+import Form from "./components/Form";
+import Section from "./components/Section";
+import List from './components/List';
 
-const AppTitle = "To-Do-App";
 
-export const App = () => {
-  const [todoList, setTodoList] = useState([]);
+const Apptitle = "to-do-App";
 
-  useEffect(() => {
-    async function fetchData() {
-      const { data } = await todos.get("/todos");
-      setTodoList(data);
-    }
+const list = [
+  { title: "test #1", completed: false },
+  { title: "test #2" },
+  { title: "test #3" }
+];
 
-    fetchData();
-  }, []);
+const App = () => {
+  const [todoList, setTodoList] = useState(list);
 
-  const addTodo = async(item) => {
-    const {data} = await todos.post("/todos", item);
-    setTodoList((oldlist) => [...oldlist, data]);
+  const addTodo = (item) => {
+    setTodoList((oldlist) => [...oldlist, item]);
   };
+
   const removeTodo = async (id) => {
-    await todos.delete(`/todos/${id}`);
-    setTodoList((oldList) => {
-      return oldList.filter((item) => item.title !== id);
-    });
+    setTodoList((oldList) => oldList.filter((item) => item._id !== id));
   };
-  const editTodo = async (id, item) => {
-    await todos.put(`/todos/${id}`, item);
-}
-
   return (
-    <div className="ui container center aligned">
+    <div className='ui container center aligned'>
+      <></>
       <Section>
-        <h1>{AppTitle}</h1>
+        <h1>
+          {Apptitle}
+        </h1>
       </Section>
+
       <Section>
         <Form addTodo={addTodo} />
       </Section>
+
       <Section>
-        <List editTodoListProp={editTodo} removeTodoListProp={removeTodo} list={todoList} />
+        <List list={todoList}
+          removeTodoListProp={removeTodo}
+        />
       </Section>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
