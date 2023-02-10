@@ -12,15 +12,16 @@ const todoRoutes = require("./routes/todoRoutes");
 
 app.use(express.json());
 app.use(cors());
+const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
-mongoose.connect(process.env.MONGODB_URI,
-    { useNewUrlParser: true, useUnifiedTopology: true,  })
-
-
-    .then(()=> console.log('Connected succefully'))
-    .catch(e => console.log(e))
-
-app.use("/todo",todoRoutes);
+mongoose
+  .connect(
+    "mongodb+srv://tatianac:saraymajo24@cluster0.vhd8ldu.mongodb.net/todolist",  // URL de la base de datos
+    connectionOptions  // Opciones de conexión
+  )
+  .then(() => console.log("Connected successfully"))  // Si la conexión es exitosa, muestra un mensaje de éxito
+  .catch((err) => console.error(err));  // Si hay un error, muestra un mensaje de error
+app.use("/todos",todoRoutes);
 
 app.listen(PORT, () =>{
     console.log("the server is listening on port " + PORT);
