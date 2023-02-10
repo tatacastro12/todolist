@@ -30,7 +30,7 @@ const App = () => {
   const removeTodo = async (id) => {
     await todos.delete(`/todos/${id}`);
     setTodoList((oldList) => {
-      return oldList.filter((item) => item.title !== id);
+      oldList.filter((item) => item.title !== id);
     });
   };
   const editTodo = async (id, item) => {
