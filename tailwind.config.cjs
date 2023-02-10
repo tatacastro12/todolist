@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-
+        'bench': ['BenchNine', 'sans-serif'],
        'graduate': ['Graduate', 'cursive'],},}
   },
   plugins: [],
