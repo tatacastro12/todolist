@@ -44,7 +44,7 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
                     </div> :
                     <>
                         <div className="column five wide " onDoubleClick={handleDivDubleClick}>
-                            <h2 className={"font-mono text-base bg-violet-400 border border-gray-200 " + (completedState ? " text-green-400 " : " ")}>{Value}</h2>
+                            <h2 className={"font-mono text-center bg-purple-300 border border-gray-200 dark:bg-violet-900 border border-gray-200  " + (completedState ? " text-green-600 " : " ")}>{Value}</h2>
                         </div>
 
 
