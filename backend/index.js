@@ -12,6 +12,7 @@ const todoRoutes = require("./routes/todoRoutes");
 
 app.use(express.json());
 app.use(cors());
+
 const connectionOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 
 mongoose
