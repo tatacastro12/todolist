@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-const Todo = ({ title, completed, removeTodoItemProp }) => {
+const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [Value, setValue] = useState(title)
+    const [value, setValue] = useState(title);
     const [tempValue, setTempValue] = useState(title);
-    const [completedState, setCompleted] = useState(completed);
+    const [completedState, setCompletedState] = useState(completed);
 
-    const handleDivDubleClick = () => {
+
+
+    const handleDivDoubleClick = () => {
         setIsEditing(true);
     };
+
     const handleInputKeyDown = (e) => {
         const key = e.keyCode;
-
         if (key === 13) {
+            editTodoItemProp({ title: tempValue });
             setValue(tempValue);
             setIsEditing(false);
         } else if (key === 27) {
-            setTempValue(Value);
+            setTempValue(value);
             setIsEditing(false);
         }
     };
@@ -25,7 +28,11 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
     };
 
     const handleButtonClick = () => {
-        setCompleted((oldCompleted) => !oldCompleted);
+        setCompletedState((oldCompleted) => {
+            const newState = !oldCompleted;
+            editTodoItemProp({ completed: newState });
+            return newState;
+        });
     };
 
     return (
@@ -37,14 +44,14 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
                             <input
                                 onChange={handleInputOnChange}
                                 onKeyDown={handleInputKeyDown}
-                                autoFocus={true}
+                                autoFocus
                                 value={tempValue}
                             />
                         </div>
                     </div> :
                     <>
-                        <div className="column five wide " onDoubleClick={handleDivDubleClick}>
-                            <h2 className={"font-bench  text-center bg-purple-300 border border-gray-200 dark:bg-cyan-700 border border-gray-200  " + (completedState ? " text-green-600 " : " ")}>{Value}</h2>
+                        <div className="column five wide " onDoubleClick={handleDivDoubleClick}>
+                            <h2 className={"font-bench  text-center bg-purple-300 border border-gray-200 dark:bg-cyan-700 border border-gray-200  " + (completedState ? " text-green-600 " : " ")}>{value}</h2>
                         </div>
 
 
