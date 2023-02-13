@@ -19,7 +19,7 @@ mongoose
   .connect( process.env.MONGODB_URI, connectionOptions)
   .then(() => console.log("Connected successfully"))
   .catch((err) => console.error(err));
-app.use("/",todoRoutes);
+app.use("/todos",todoRoutes);
 
 app.listen(PORT, () =>{
     console.log("the server is listening on port " + PORT);
