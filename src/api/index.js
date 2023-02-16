@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "http://localhost:3030"
+    baseURL: "hhttps://todolist-oe6d-edi10v2mk-tatacastro12.vercel.app/"
 });
